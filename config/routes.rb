@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: :auth}
+
+  root 'pages#home'
+
+  post '/incoming' => "twilio#incoming"
+  get "api/slack" => "slack#api"
+
+  get "/phone_registration" => 'pages#phone'
+
+  resources :users do
+    resources :phone_numbers
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

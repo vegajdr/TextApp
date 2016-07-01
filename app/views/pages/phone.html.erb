@@ -1,0 +1,6 @@
+*Insert form here that registers phone number to current_user*
+
+<%= bootstrap_form_for @user, url: user_phone_numbers_path(current_user.id), method: :post do |f| %>
+  <%= f.text_field :phone_numbers, value: "" %>
+  <button class="btn btn-primary">Save</button>
+<% end %>
