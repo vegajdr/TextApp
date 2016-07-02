@@ -1,6 +1,6 @@
-*Insert form here that registers phone number to current_user*
+Please register your phone number to your account:
 
-<%= bootstrap_form_for @user, url: user_phone_numbers_path(current_user.id), method: :post do |f| %>
-  <%= f.text_field :phone_numbers, value: "" %>
+<%= bootstrap_form_for @user, label_errors: true, url: user_phone_numbers_path(current_user.id), method: :post do |f| %>
+  <%= f.telephone_field :phone_numbers, value: "", placeholder: "9192389302", hide_label: true %>
   <button class="btn btn-primary">Save</button>
 <% end %>
