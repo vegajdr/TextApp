@@ -7,32 +7,50 @@ class TwilioController < ApplicationController
 
   def incoming
     slack_post
-    boot_twilio
-    sms = @client.messages.create(
-      from: '+19197565397',
-      to: params[:From],
-      body: "Your text has been posted to TIYTextAPP Slack Team."
-    )
+    text_response
   end
 
   private
 
     def slack_post
+      # There needs to be a class? or method that returns the token of the user that is sending the
+      # text based on the phone number stored in:
+      # data = JSON.parse user.slack_data
+      # token = data["credentials"]["token"]
+      user = match params[:From]
+
+      data = JSON.parse user.slack_data
+      token = data["credentials"]["token"]
+
       request = HTTParty.post "https://slack.com/api/chat.postMessage",
       header: {
-        "Authorization" => "token #{ENV["TEST_TOKEN"]}",
+        "Authorization" => "token #{token}",
         "User-Agent" => "Vega"
       },
       query: {
-        token: ENV["TEST_TOKEN"],
-        channel: "C1MSM6PLY",
+        token: token,
+        channel: "random",
         text: "#{params[:Body]}",
         as_user: true
       }
     end
 
-    def boot_twilio
-      @client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
+    def text_response
+      client = Twilio::REST::Client.new ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"]
+      client.messages.create(
+        from: '+19197565397',
+        to: params[:From],
+        body: "Your text has been posted to the TIYTextAPP Slack Team."
+      )
+    end
+
+    def match phone_number
+      phone = PhoneNumber.find_by(raw_phone_number: phone_number )
+      if phone
+        return phone.user
+      else
+        return nil
+      end
     end
 
 

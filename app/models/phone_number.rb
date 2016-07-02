@@ -4,4 +4,6 @@ class PhoneNumber < ActiveRecord::Base
   validates :phone_number, length: { minimum: 9 }
 
   validates_presence_of :phone_number
+
+  
 end
