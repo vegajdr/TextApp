@@ -7,4 +7,7 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def test
+  end
+
 end

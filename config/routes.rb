@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get "/phone_registration" => 'pages#phone'
 
+  get "/test" => 'pages#test'
+
   resources :users do
     resources :phone_numbers
   end

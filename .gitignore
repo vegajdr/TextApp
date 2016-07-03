@@ -14,3 +14,8 @@
 
 # Ignore application configuration
 /config/application.yml
+
+*.jpg
+*.png
+
+.DS_Store

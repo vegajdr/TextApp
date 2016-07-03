@@ -1,6 +1,10 @@
-Please register your phone number to your account:
+<div class="container">
+  <div class="container">
+    <p>Please register your phone number to your account:</p>
 
-<%= bootstrap_form_for @user, label_errors: true, url: user_phone_numbers_path(current_user.id), method: :post do |f| %>
-  <%= f.telephone_field :phone_numbers, value: "", placeholder: "9192389302", hide_label: true %>
-  <button class="btn btn-primary">Save</button>
-<% end %>
+    <%= bootstrap_form_for @user, label_errors: true, url: user_phone_numbers_path(current_user.id), method: :post do |f| %>
+      <%= f.telephone_field :phone_numbers, value: "", placeholder: "9192389302", hide_label: true %>
+      <button class="btn btn-primary">Save</button>
+    <% end %>
+  </div>
+</div>

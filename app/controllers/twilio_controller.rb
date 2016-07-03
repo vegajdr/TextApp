@@ -13,10 +13,6 @@ class TwilioController < ApplicationController
   private
 
     def slack_post
-      # There needs to be a class? or method that returns the token of the user that is sending the
-      # text based on the phone number stored in:
-      # data = JSON.parse user.slack_data
-      # token = data["credentials"]["token"]
       user = match params[:From]
 
       data = JSON.parse user.slack_data
