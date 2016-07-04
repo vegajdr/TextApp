@@ -23,6 +23,13 @@ h6 {
 
 .topnav {
     font-size: 14px;
+    background-color: rgb(13,134,105);
+}
+
+.white {
+  color: white;
+  font-size: 23px;
+  padding-top: 15px;
 }
 
 .lead {
@@ -36,7 +43,7 @@ h6 {
     text-align: center;
     color: #f8f8f8;
     background: url(../img/intro-bg.jpg) no-repeat center center;
-    background: image-url("slackbanner.jpg") no-repeat center center;
+    // background: image-url("slackbanner.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -48,9 +55,10 @@ h6 {
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.6);
+    text-shadow: 1px 2px 1px rgba(0,0,0,0.6);
     font-size: 5em;
 }
+
 
 #main-title {
   color: rgb(79,57,74);
@@ -109,7 +117,7 @@ h6 {
 
 .content-section-a {
     padding: 50px 0;
-    background-color: #f8f8f8;
+    background-color: rgba(140,196,209,0.3);
 }
 
 .content-section-b {
@@ -133,6 +141,10 @@ h6 {
     color: #f8f8f8;
     background: image-url("slackbanner.jpg") no-repeat center center;
     background-size: cover;
+}
+
+.slack-color {
+  color: rgb(79,57,74);
 }
 
 .banner h2 {

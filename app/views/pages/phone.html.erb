@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="container">
+  <div class="form-container">
     <p>Please register your phone number to your account:</p>
 
     <%= bootstrap_form_for @user, label_errors: true, url: user_phone_numbers_path(current_user.id), method: :post do |f| %>

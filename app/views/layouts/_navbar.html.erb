@@ -9,17 +9,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%= link_to "Slack #TEXT", root_path, class: "navbar-brand topnav" %>
+            <%= link_to "Slack #TEXT", root_path, class: "navbar-brand white" %>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
                 <li>
                     <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
                 </li>
+              <% end %>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
+</br>
+</br>
+</br>
+
+<div>
+  <%= bootstrap_flash %>
+</div>
